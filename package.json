@@ -1,7 +1,7 @@
 {
-  "name": "__BONES_NEEDS_A_NAME__",
+  "name": "react-boilerplate",
   "version": "0.0.1",
-  "description": "A happy little skeleton.",
+  "description": "A react/redux boilerplate for projects. Based on bones by glebec",
   "main": "index.js",
   "scripts": {
     "validate": "check-node-version --node '>= 6.7.0'",
@@ -20,7 +20,7 @@
     "test": "mocha --compilers js:babel-register app/**/*.test.js app/**/*.test.jsx db/**/*.test.js server/**/*.test.js",
     "test-watch": "npm run test -- --watch",
     "test-dev": "npm run test-watch -- -R mocha-tldr-reporter",
-    "dev": "cross-env NODE_ENV=development concurrently --kill-others --prefix \"[{name}]\" --names \"BUILD,SERVE,LINT ,TEST \" -c \"bgBlue.black,bgGreen.black,bgYellow.black,bgMagenta.black\" \"npm run build-dev\" \"npm run start-dev\" \"npm run lint-watch\" \"npm run test-dev\"",
+    "dev": "cross-env NODE_ENV=development concurrently --kill-others --prefix \"[{name}]\" --names \"BUILD,SERVE \" -c \"bgBlue.black,bgGreen.black,bgYellow.black,bgMagenta.black\" \"npm run build-dev\" \"npm run start-dev\"",
     "seed": "node db/seed.js",
     "deploy-heroku": "bin/deploy-heroku.sh",
     "precommit": "npm run lint"
@@ -34,7 +34,7 @@
     "redux",
     "skeleton"
   ],
-  "author": "Ashi Krishnan <me@ashi.works>",
+  "author": "Mike Peritz <github.com/mperitz>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/queerviolet/bones/issues"
