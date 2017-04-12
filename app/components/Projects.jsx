@@ -10,7 +10,7 @@ const styles = {
     justifyContent: 'space-around',
   },
   gridList: {
-    width: 1000,
+    width: '90%',
     height: 900,
     overflowY: 'auto',
   },
@@ -45,13 +45,13 @@ export default class extends Component {
           style={styles.gridList}
           cols={4}
         >
-          <Subheader>Applications</Subheader>
+
           {applicationsTiles.map((tile) => (
             <GridTile
               key={tile.img}
               title={tile.title}
               subtitle={<span><b>{tile.about}</b></span>}
-              cols={2}
+              cols={1}
             >
               <a href={tile.url}><img src={tile.img} /></a>
             </GridTile>
