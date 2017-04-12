@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 import {GridList, GridTile} from 'material-ui/GridList'
-import Subheader from 'material-ui/Subheader'
+import Modal from 'react-modal'
 
 const styles = {
   root: {
@@ -36,27 +36,82 @@ const applicationsTiles = [
   },
 ]
 
+const customStyles = {
+  content : {
+    top                   : '50%',
+    left                  : '50%',
+    right                 : 'auto',
+    bottom                : 'auto',
+    marginRight           : '-50%',
+    transform             : 'translate(-50%, -50%)'
+  }
+}
+
 export default class extends Component {
+  constructor() {
+    super()
+    this.state = {
+      modalIsOpen: false
+    }
+    this.openModal = this.openModal.bind(this)
+    this.afterOpenModal = this.afterOpenModal.bind(this)
+    this.closeModal = this.closeModal.bind(this)
+  }
+  openModal() {
+    this.setState({modalIsOpen: true})
+  }
+
+  afterOpenModal() {
+    // references are now sync'd and can be accessed.
+    this.refs.subtitle.style.color = '#f00'
+  }
+
+  closeModal() {
+    this.setState({modalIsOpen: false})
+  }
   render() {
     return (
-      <div style={styles.root}>
-        <GridList
-          cellHeight={360}
-          style={styles.gridList}
-          cols={4}
-        >
+      <div>
+        <div>
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onAfterOpen={this.afterOpenModal}
+            onRequestClose={this.closeModal}
+            style={customStyles}
+            contentLabel="Example Modal"
+          >
 
-          {applicationsTiles.map((tile) => (
-            <GridTile
-              key={tile.img}
-              title={tile.title}
-              subtitle={<span><b>{tile.about}</b></span>}
-              cols={1}
-            >
-              <a href={tile.url}><img src={tile.img} /></a>
-            </GridTile>
-          ))}
-        </GridList>
+            <h2 ref="subtitle">Hello</h2>
+            <button onClick={this.closeModal}>close</button>
+            <div>I am a modal</div>
+            <form>
+              <input />
+              <button>tab navigation</button>
+              <button>stays</button>
+              <button>inside</button>
+              <button>the modal</button>
+            </form>
+          </Modal>
+        </div>
+        <div style={styles.root}>
+          <GridList
+            cellHeight={360}
+            style={styles.gridList}
+            cols={4}
+          >
+            {applicationsTiles.map((tile) => (
+              <GridTile
+                key={tile.img}
+                title={tile.title}
+                subtitle={<span><b>{tile.about}</b></span>}
+                cols={1}
+                onClick={this.openModal}
+              >
+                <img src={tile.img} />
+              </GridTile>
+            ))}
+          </GridList>
+        </div>
       </div>
     )
   }

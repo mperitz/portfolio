@@ -14,7 +14,7 @@ const styles = {
     overflowY: 'auto',
   },
   textList: {
-    width: 1430,
+    width: '97%',
     height: 230,
     overflowY: 'auto',
   },
