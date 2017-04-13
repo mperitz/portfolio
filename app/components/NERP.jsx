@@ -23,14 +23,14 @@ const styles = {
   }
 }
 
-const nerdsTiles = [
+const nerpTiles = [
   {
     img: './img/nodejs-logo.png',
     title: 'Node.js',
     about: 'Node.js® is a JavaScript runtime built on Chrome\'s V8 JavaScript engine. Node.js uses an event-driven, non-blocking I/O model that makes it lightweight and efficient. Node.js\' package ecosystem, npm, is the largest ecosystem of open source libraries in the world.',
   },
   {
-    img: './img/express-logo.png',
+    img: './img/express-logo.jpg',
     title: 'Express.js',
     about: 'Express is a minimal and flexible Node.js web application framework that provides a robust set of features for web and mobile applications. With a myriad of HTTP utility methods and middleware, it makes creating a RESTful API quick and easy.',
   },
@@ -40,18 +40,18 @@ const nerdsTiles = [
     about: 'React makes it painless to create interactive UIs by efficiently updating and rendering just the right components when data changes. React lets you build encapsulated components that manage their own state, then compose them to make complex UIs.  React also works well with Redux, a "single source of truth" state management system.'
   },
   {
-    img: './img/sequelize-logo.png',
-    title: 'Databases with Sequelize',
-    about: 'Sequelize is a promise-based database manager that uses Object Relational Mapping (ORM) for Node.js and io.js. It supports the dialects PostgreSQL, MySQL, MariaDB, SQLite and MSSQL and features solid transaction support, relations, read replication and more.'
+    img: './img/postgres-logo.png',
+    title: 'PostgreSQL',
+    about: 'PostgreSQL is a powerful, open source object-relational database system. It has more than 15 years of active development and a proven architecture that has earned it a strong reputation for reliability, data integrity, and correctness.'
   },
 ]
 
-const NERDS = () => {
+const NERP = () => {
   return (
     <div>
       <div className="nerd">
-        <h1>I am a total NERD!</h1>
-        <h4>Yeah, in life, but also as a software developer.  That means I use the NERDS stack to create dynamic, scalable applications.  What's the NERDS stack?</h4>
+        <h1>I am a total NERP!</h1>
+        <h4>A NERP?  That means I use the NERP stack to create dynamic, scalable applications.  What's the NERP stack?</h4>
       </div>
       <br />
       <div style={styles.root}>
@@ -60,7 +60,7 @@ const NERDS = () => {
           style={styles.gridList}
           cols={4}
         >
-          {nerdsTiles.map((tile) => (
+          {nerpTiles.map((tile) => (
             <GridTile
               className="tile"
               key={tile.img}
@@ -78,7 +78,7 @@ const NERDS = () => {
           style={styles.textList}
           cols={4}
         >
-          {nerdsTiles.map((tile) => (
+          {nerpTiles.map((tile) => (
             <GridTile
               key={tile.title}
               cols={1}
@@ -93,4 +93,4 @@ const NERDS = () => {
   )
 }
 
-export default NERDS
+export default NERP

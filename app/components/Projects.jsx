@@ -13,86 +13,76 @@ const styles = {
     width: '90%',
     height: 900,
     overflowY: 'auto',
+    marginTop: 20
   },
+  modal: {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      width: 800
+    }
+  },
+  title: {
+    textAlign: 'center'
+  },
+  img: {
+    height: 364,
+    width: 718,
+    border: '1px solid black',
+    margin: 'auto',
+    display: 'block'
+  }
 }
 
 const applicationsTiles = [
   {
     img: './img/jam-map.png',
     title: 'The Jam Map',
-    about: 'A filterable map that shows users live music in their area.',
-    url: 'https://the-jam-map.herokuapp.com'
+    about: 'A filterable map that shows users live music in their area. The Jam Map allows you to filter shows by date range, genre, and artist name, and also provides detailed information about each show.  To get you hyped for the show, The Jam Map also provides 30 second song clips by the performing artist.',
+    url: 'https://the-jam-map.herokuapp.com',
+    tech: 'React, Redux, Node.js, Express.js, AJAX, Material UI, Google Maps API, Ticketmaster API, Spotify API'
   },
   {
     img: './img/pair-it.png',
     title: 'Pair.It',
-    about: 'A desktop application built for remote pair programming.',
-    url: 'https://pair-it.herokuapp.com'
-  },
-  {
-    img: 'jldjdkqweqwfewgrvr',
-    title: 'Another Project',
-    about: 'My third project.'
-  },
+    about: 'A desktop application built for remote pair programming. Pair.It combines peer-to-peer video, live two-way code editing, and version control through Git and Github to allow pair partners to program together from anywhere.',
+    url: 'https://pair-it.herokuapp.com',
+    tech: 'React, Redux, Node.js, Express.js, Passport OAuth, WebRTC, Socket.io, Simple-Git, Github API, Enzyme, Jest'
+  }
 ]
 
-const customStyles = {
-  content : {
-    top                   : '50%',
-    left                  : '50%',
-    right                 : 'auto',
-    bottom                : 'auto',
-    marginRight           : '-50%',
-    transform             : 'translate(-50%, -50%)'
-  }
-}
-
 export default class extends Component {
+
   constructor() {
     super()
     this.state = {
-      modalIsOpen: false
+      modalIsOpen: {}
     }
     this.openModal = this.openModal.bind(this)
-    this.afterOpenModal = this.afterOpenModal.bind(this)
     this.closeModal = this.closeModal.bind(this)
   }
-  openModal() {
-    this.setState({modalIsOpen: true})
+
+  componentDidMount() {
+    applicationsTiles.map(app => {
+      this.setState({ modalIsOpen: Object.assign({}, this.state.modalIsOpen, { [app.img]: false }) })
+    })
   }
 
-  afterOpenModal() {
-    // references are now sync'd and can be accessed.
-    this.refs.subtitle.style.color = '#f00'
+  openModal(id) {
+    this.setState({ modalIsOpen: Object.assign({}, this.state.modalIsOpen, { [id]: true }) })
   }
 
-  closeModal() {
-    this.setState({modalIsOpen: false})
+  closeModal(id) {
+    this.setState({ modalIsOpen: Object.assign({}, this.state.modalIsOpen, { [id]: false }) })
   }
+
   render() {
     return (
       <div>
-        <div>
-          <Modal
-            isOpen={this.state.modalIsOpen}
-            onAfterOpen={this.afterOpenModal}
-            onRequestClose={this.closeModal}
-            style={customStyles}
-            contentLabel="Example Modal"
-          >
-
-            <h2 ref="subtitle">Hello</h2>
-            <button onClick={this.closeModal}>close</button>
-            <div>I am a modal</div>
-            <form>
-              <input />
-              <button>tab navigation</button>
-              <button>stays</button>
-              <button>inside</button>
-              <button>the modal</button>
-            </form>
-          </Modal>
-        </div>
         <div style={styles.root}>
           <GridList
             cellHeight={360}
@@ -103,11 +93,23 @@ export default class extends Component {
               <GridTile
                 key={tile.img}
                 title={tile.title}
-                subtitle={<span><b>{tile.about}</b></span>}
+                subtitle={<span><b>{tile.about.split('.')[0]}</b></span>}
                 cols={1}
-                onClick={this.openModal}
+                onClick={() => this.openModal(tile.img)}
               >
                 <img src={tile.img} />
+                <Modal
+                  isOpen={this.state.modalIsOpen[tile.img]}
+                  onRequestClose={() => this.closeModal(tile.img)}
+                  style={styles.modal}
+                  contentLabel={tile.title}
+                >
+                  <h2 style={styles.title}>{tile.title}</h2>
+                  <img src={tile.img} style={styles.img} />
+                  <h4>{tile.about}</h4>
+                  <p>Technologies: {tile.tech}</p>
+                  <p>Deployed at: <a href={tile.url}>{tile.url}</a></p>
+                </Modal>
               </GridTile>
             ))}
           </GridList>

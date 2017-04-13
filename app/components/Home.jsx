@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import NERDS from './NERDS'
+import NERP from './NERP'
 
 export default class Home extends Component {
   constructor(props) {
@@ -30,33 +30,34 @@ export default class Home extends Component {
   sendEmail(ev) {
     ev.preventDefault()
     emailjs.send('gmail', 'template_dwI46kfU', this.state)
-    .then(res => console.log('success', res))
+    .then(() => alert('Message sent successfully!'))
+    .then(() => document.getElementById('email').reset())
     .catch(err => console.error(err))
   }
   render() {
     return (
       <div>
         <div className="intro" />
-        <NERDS />
+        <NERP />
         <div className="why">
-          <h1>Why the NERDS stack?</h1>
+          <h1>Why the NERP stack?</h1>
           <ul>
             <li><span><b>The Virtual DOM</b></span><br />The developers of all the major front-end libraries (React, Angular, Ember) have converged on the idea of using virtual DOMs (React, Angular2, Ember's Glimmer) as a high-performance abstraction for describing and storing application states.</li>
             <li><span><b>Consistency</b></span><br />The React ecosystem has converged on a same set of standards - React, React-Router, Redux, and Webpack+Babel. This takes a lot of the guesswork out of implementations and development.</li>
             <li><span><b>Redux</b></span><br />Redux is awesome.  A very small library (2K lines of JavaScript) that encourages good functional programming practices.  Single source of truth and deterministic (replayable) mutations to that state are a great way to create maintainable apps.</li>
-            <li><span><b>Testing</b></span><br />Testing the NERDS stack is much easier than its competitors.  React's testing libraries (Enzyme, Jest) are a big contributor to this!</li>
+            <li><span><b>Testing</b></span><br />Testing the NERP stack is much easier than its competitors.  React's testing libraries (Enzyme, Jest) are a big contributor to this!</li>
           </ul>
         </div>
         <div>
           <h1 className="center">Lets get in touch!</h1>
-          <form>
+          <form id="email">
             Name:<br />
             <input type="text" name="name" onChange={this.setName} /><br />
             E-mail:<br />
             <input type="text" name="mail" onChange={this.setEmail} /><br />
             Message:<br />
             <textarea id="message" type="text" name="comment" size="50" onChange={this.setMessage} /><br /><br />
-            <input type="submit" value="Send" onClick={this.sendEmail} />
+            <input type="reset" value="Send" onClick={this.sendEmail} />
           </form>
         </div>
       </div>
