@@ -1,7 +1,7 @@
 {
-  "name": "react-boilerplate",
+  "name": "portfolio",
   "version": "0.0.1",
-  "description": "A react/redux boilerplate for projects. Based on bones by glebec",
+  "description": "Mike Peritz personal portfolio site.",
   "main": "index.js",
   "scripts": {
     "validate": "check-node-version --node '>= 6.7.0'",
