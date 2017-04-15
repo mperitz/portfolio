@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-import {GridList, GridTile} from 'material-ui/GridList'
+import { GridList, GridTile } from 'material-ui/GridList'
 import Modal from 'react-modal'
 
 const styles = {
@@ -52,6 +52,12 @@ const applicationsTiles = [
     about: 'A desktop application built for remote pair programming. Pair.It combines peer-to-peer video, live two-way code editing, and version control through Git and Github to allow pair partners to program together from anywhere.',
     url: 'https://pair-it.herokuapp.com',
     tech: 'React, Redux, Node.js, Express.js, Passport OAuth, WebRTC, Socket.io, Simple-Git, Github API, Enzyme, Jest'
+  },
+  {
+    img: './img/tech-talk.png',
+    title: 'Handling Asynchronicity in JavaScript',
+    about: "A 10 minute talk discussing various methods at the developer's disposal for handling asynchronous events using JS. Topics covered include callbacks, promises, streams, reactive programming, and async-await.  Skip to the end of the video for some useful resources in helping deal with difficult asynchronous situations.",
+    url: 'https://www.youtube.com/watch?v=dSAaLFhlRrc',
   }
 ]
 
@@ -83,11 +89,15 @@ export default class extends Component {
   render() {
     return (
       <div>
+        <div className="center">
+          <h3>Check out some of the things I've created!</h3>
+          <p>Click each project for more information and a link to the project.</p>
+        </div>
         <div style={styles.root}>
           <GridList
             cellHeight={360}
             style={styles.gridList}
-            cols={4}
+            cols={applicationsTiles.length}
           >
             {applicationsTiles.map((tile) => (
               <GridTile
@@ -107,7 +117,7 @@ export default class extends Component {
                   <h2 style={styles.title}>{tile.title}</h2>
                   <img src={tile.img} style={styles.img} />
                   <h4>{tile.about}</h4>
-                  <p>Technologies: {tile.tech}</p>
+                  {tile.tech && <p>Technologies: {tile.tech}</p>}
                   <p>Deployed at: <a href={tile.url}>{tile.url}</a></p>
                 </Modal>
               </GridTile>

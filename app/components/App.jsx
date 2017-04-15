@@ -2,8 +2,20 @@ import React from 'react'
 import { Link } from 'react-router'
 
 import AppBar from 'material-ui/AppBar'
-import FlatButton from 'material-ui/FlatButton'
-import FontIcon from 'material-ui/FontIcon'
+import IconButton from 'material-ui/IconButton'
+
+const styles = {
+  appBarIcon: {
+    bottom: 14,
+    right: 14
+  },
+  div: {
+    marginTop: 12
+  },
+  iconButton: {
+    bottom: 3,
+  }
+}
 
 const App = ({ children }) => {
   return (
@@ -11,23 +23,24 @@ const App = ({ children }) => {
       <AppBar
         title="Mike Peritz"
         showMenuIconButton={true}
-        iconElementLeft={<Link to="/home"><img style={{ height: 50, width: 50 }} src="./img/mike-logo.png" /></Link>}
+        iconElementLeft={
+          <Link to="/home">
+            <IconButton tooltip="Home" tooltipPosition="bottom-right" style={styles.appBarIcon}>
+              <img src="./img/mike-logo.png" />
+            </IconButton>
+          </Link>
+        }
       >
-        <div style={{ marginTop: 12 }}>
-          <Link to="/projects"><FlatButton label="Projects" /></Link>
-          <FlatButton label="Skills" />
-          <FlatButton label="Thoughts" />
-          <FlatButton
-            href="https://github.com/mperitz"
-            target="_blank"
-            icon={<FontIcon className="muidocs-icon-custom-github" />}
-          />
-          <FlatButton
-            href="https://www.linkedin.com/in/mike-peritz/"
-            target="_blank"
-          >
-            <img src="./img/linkedin-3-icon.png" style={{ height: 24, width: 24 }} />
-          </FlatButton>
+        <div style={styles.div}>
+          <Link to="/projects">
+            <IconButton tooltip="Projects" style={styles.iconButton}>
+              <img src="./img/project-logo.png" />
+            </IconButton>
+          </Link>
+          <IconButton href="https://github.com/mperitz" iconClassName="muidocs-icon-custom-github" tooltip="Github" />
+          <IconButton href="https://www.linkedin.com/in/mike-peritz/" tooltip="LinkedIn">
+            <img src="./img/linkedin-3-icon.png" />
+          </IconButton>
         </div>
       </AppBar>
       <div>{ children }</div>
