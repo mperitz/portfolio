@@ -56,7 +56,7 @@ const applicationsTiles = [
   {
     img: './img/tech-talk.png',
     title: 'Handling Asynchronicity in JavaScript',
-    about: "A 10 minute talk discussing various methods at the developer's disposal for handling asynchronous events using JS. Topics covered include callbacks, promises, streams, reactive programming, and async-await.  Skip to the end of the video for some useful resources in helping deal with difficult asynchronous situations.",
+    about: "A 10 minute talk discussing asynchronous methods in JavaScript. Topics covered include callbacks, promises, streams, reactive programming, and async-await.  Skip to the end of the video for some useful resources in helping deal with difficult asynchronous situations.",
     url: 'https://www.youtube.com/watch?v=dSAaLFhlRrc',
   }
 ]
@@ -103,6 +103,7 @@ export default class extends Component {
               <GridTile
                 key={tile.img}
                 title={tile.title}
+                titleBackground= "rgba(0, 0, 0, 0.8)"
                 subtitle={<span><b>{tile.about.split('.')[0]}</b></span>}
                 cols={1}
                 onClick={() => this.openModal(tile.img)}
