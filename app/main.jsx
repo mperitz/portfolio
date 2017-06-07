@@ -12,7 +12,6 @@ import store from './store'
 import App from './components/App'
 import NotFound from './components/NotFound'
 import Home from './components/Home'
-import Projects from './components/Projects'
 
 render(
   <MuiThemeProvider>
@@ -21,7 +20,6 @@ render(
         <Route path="/" component={App}>
           <IndexRedirect to="/home" />
           <Route path="/home" component={Home} />
-          <Route path="/projects" component={Projects} />
         </Route>
         <Route path="*" component={NotFound} />
       </Router>

@@ -32,11 +32,6 @@ const App = ({ children }) => {
         }
       >
         <div style={styles.div}>
-          <Link to="/projects">
-            <IconButton tooltip="Projects" style={styles.iconButton}>
-              <img src="./img/project-logo.png" />
-            </IconButton>
-          </Link>
           <IconButton href="https://github.com/mperitz" iconClassName="muidocs-icon-custom-github" tooltip="Github" />
           <IconButton href="https://www.linkedin.com/in/mike-peritz/" tooltip="LinkedIn">
             <img src="./img/linkedin-3-icon.png" />

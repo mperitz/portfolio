@@ -1,25 +1,22 @@
 import React from 'react'
 
-import {GridList, GridTile} from 'material-ui/GridList'
+import { GridList, GridTile } from 'material-ui/GridList'
 
 const styles = {
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     justifyContent: 'space-around',
+    padding: '0 50 0 50'
   },
   gridList: {
     width: '97%',
-    height: 380,
-    overflowY: 'auto',
+    height: '100%',
   },
   textList: {
     width: '97%',
-    height: 230,
+    height: 250,
     overflowY: 'auto',
-  },
-  tile: {
-    border: 'solid 1px',
   }
 }
 
@@ -37,7 +34,7 @@ const nerpTiles = [
   {
     img: './img/react-redux-logo.jpg',
     title: 'React/Redux',
-    about: 'React makes it painless to create interactive UIs by efficiently updating and rendering just the right components when data changes. React lets you build encapsulated components that manage their own state, then compose them to make complex UIs.  React also works well with Redux, a "single source of truth" state management system.'
+    about: 'React makes it painless to create interactive UIs by efficiently updating and rendering encapsulated components when data changes. React components manage their own state, but also work with Redux, a global "single source of truth" state management system.'
   },
   {
     img: './img/postgres-logo.png',
@@ -48,7 +45,7 @@ const nerpTiles = [
 
 const NERP = () => {
   return (
-    <div>
+    <div id="nerp">
       <div className="nerd">
         <h1>I am a total NERP!</h1>
         <h4>A NERP?  That means I use the NERP stack to create dynamic, scalable applications.  What's the NERP stack?</h4>
@@ -56,16 +53,15 @@ const NERP = () => {
       <br />
       <div style={styles.root}>
         <GridList
-          cellHeight={360}
+          cellHeight={240}
           style={styles.gridList}
           cols={4}
         >
           {nerpTiles.map((tile) => (
             <GridTile
-              className="tile"
+              className="img-tile"
               key={tile.img}
               cols={1}
-              style={styles.tile}
             >
               <img src={tile.img} />
             </GridTile>
@@ -80,6 +76,7 @@ const NERP = () => {
         >
           {nerpTiles.map((tile) => (
             <GridTile
+              className="tile-text"
               key={tile.title}
               cols={1}
             >

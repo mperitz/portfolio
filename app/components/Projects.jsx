@@ -40,18 +40,25 @@ const styles = {
 
 const applicationsTiles = [
   {
-    img: './img/jam-map.png',
-    title: 'The Jam Map',
-    about: 'A filterable map that shows users live music in their area. The Jam Map allows you to filter shows by date range, genre, and artist name, and also provides detailed information about each show.  To get you hyped for the show, The Jam Map also provides 30 second song clips by the performing artist.',
-    url: 'https://the-jam-map.herokuapp.com',
-    tech: 'React, Redux, Node.js, Express.js, AJAX, Material UI, Google Maps API, Ticketmaster API, Spotify API'
+    img: 'https://media.giphy.com/media/GPIRkqWzkETJu/giphy.gif',
+    title: 'react-filetree-electron',
+    about: 'An open source, fully customizable react component that displays a tree-like representation of a directory.  All sub-directories are expand and contract with the click of a button.  I am currently maintaining this project and managing pull requests.',
+    url: 'https://github.com/mperitz/react-filetree-electron',
+    tech: 'React, Redux, Node.js, Electron, Open Source, Continuous Integration'
   },
   {
     img: './img/pair-it.png',
     title: 'Pair.It',
     about: 'A desktop application built for remote pair programming. Pair.It combines peer-to-peer video, live two-way code editing, and version control through Git and Github to allow pair partners to program together from anywhere.',
     url: 'https://pair-it.herokuapp.com',
-    tech: 'React, Redux, Node.js, Express.js, Passport OAuth, WebRTC, Socket.io, Simple-Git, Github API, Enzyme, Jest'
+    tech: 'React, Redux, Node.js, Express.js, Electron, Passport OAuth, WebRTC, Socket.io, Simple-Git, Github API, Enzyme, Jest'
+  },
+  {
+    img: './img/jam-map.png',
+    title: 'The Jam Map',
+    about: 'A filterable map that shows users live music in their area. The Jam Map allows you to filter shows by date range, genre, and artist name, and also provides detailed information about each show.  To get you hyped for the show, The Jam Map also provides 30 second song clips by the performing artist.',
+    url: 'https://the-jam-map.herokuapp.com',
+    tech: 'React, Redux, Node.js, Express.js, AJAX, Material UI, Google Maps API, Ticketmaster API, Spotify API'
   },
   {
     img: './img/tech-talk.png',
@@ -102,6 +109,7 @@ export default class extends Component {
             {applicationsTiles.map((tile) => (
               <GridTile
                 key={tile.img}
+                className="project-tile"
                 title={tile.title}
                 titleBackground= "rgba(0, 0, 0, 0.8)"
                 subtitle={<span><b>{tile.about.split('.')[0]}</b></span>}

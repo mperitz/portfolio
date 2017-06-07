@@ -1,0 +1,140 @@
+@media (max-width: 2560px) {
+  .intro {
+    background-image: url('./img/mountains-2560.jpg');
+    height: 1223px;
+  }
+  .img-tile > img {
+    width: 40% !important;
+  }
+}
+
+@media (max-width: 2350px) {
+  .img-tile > img {
+    width: 45% !important;
+  }
+}
+
+@media (max-width: 2200px) {
+  .intro {
+    background-image: url('./img/mountains-2200.jpg');
+    height: 1051px;
+  }
+  .img-tile > img {
+    width: 47% !important;
+  }
+}
+
+@media (max-width: 2150px) {
+  .img-tile > img {
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 1920px) {
+  .intro {
+    background-image: url('./img/mountains-1920.jpg');
+    height: 918px;
+  }
+  .img-tile > img {
+    width: 53% !important;
+  }
+}
+
+@media (max-width: 1800px) {
+  .intro {
+    background-image: url('./img/mountains-1920.jpg');
+    height: 918px;
+  }
+  .img-tile > img {
+    width: 56% !important;
+  }
+}
+
+@media (max-width: 1680px) {
+  .intro {
+    background-image: url('./img/mountains-1680.jpg');
+    height: 803px;
+  }
+  .img-tile > img {
+    width: 60% !important;
+  }
+}
+
+@media (max-width: 1550px) {
+  .img-tile > img {
+    width: 65% !important;
+  }
+}
+
+@media (max-width: 1440px) {
+  .intro {
+    background-image: url('./img/mountains-1440.jpg');
+    height: 688px;
+  }
+  .img-tile > img {
+    width: 68% !important;
+  }
+}
+
+@media (max-width: 1330px) {
+  .img-tile > img {
+    width: 70% !important;
+  }
+}
+
+@media (max-width: 1280px) {
+  .intro {
+    background-image: url('./img/mountains-1280.jpg');
+    height: 611px;
+  }
+  .img-tile > img {
+    width: 73% !important;
+  }
+}
+
+@media (max-width: 1190px) {
+  .img-tile > img {
+    width: 77% !important;
+  }
+}
+
+@media (max-width: 1090px) {
+  .img-tile > img {
+    width: 85% !important;
+  }
+}
+
+@media (max-width: 1024px) {
+  .intro {
+    background-image: url('./img/mountains-1024.jpg');
+    height: 489px;
+  }
+  .img-tile > img {
+    width: 90% !important;
+  }
+  .tile-text > p {
+    font-size: 12px !important;
+  }
+}
+
+@media (max-width: 940px) {
+  .img-tile > img {
+    width: 95% !important;
+  }
+}
+
+@media (max-width: 860px) {
+  .intro {
+    background-image: url('./img/mountains-860.jpg');
+    height: 411px;
+  }
+  .img-tile > img {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 682px) {
+  .tile-text > p {
+    font-size: 10px !important;
+  }
+}

@@ -5,14 +5,11 @@ const NotFound = props => {
   const {pathname} = props.location || {pathname: '<< no path >>'}
   console.error('NotFound: %s not found (%o)', pathname, props)
   return (
-    <div>
+    <div style={{ textAlign: 'center' }}>
       <h1>Sorry, I couldn't find <pre>{pathname}</pre></h1>
-      <p>The router gave me these props:</p>
-      <pre>
-        {JSON.stringify(props, null, 2)}
-      </pre>
       <p>Lost? <Link to="/">Here's a way home.</Link></p>
-      <cite>~ xoxo, bones.</cite>
+      <img src="./img/face.jpg"></img>
+      <cite>~ xoxo, Mike.</cite>
     </div>
   )
 }

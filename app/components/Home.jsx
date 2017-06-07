@@ -1,19 +1,40 @@
 import React, { Component } from 'react'
+import Modal from 'react-modal'
+import TextField from 'material-ui/TextField'
+import RaisedButton from 'material-ui/RaisedButton'
 
-import NERP from './NERP'
+import Nerp from './NERP'
+import Projects from './Projects'
+
+const modalStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width: 450
+  }
+}
 
 export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
+      modalIsOpen: false,
       from_name: '',
       reply_email: '',
       message: ''
     }
+    this.changeModalView = this.changeModalView.bind(this)
     this.setName = this.setName.bind(this)
     this.setEmail = this.setEmail.bind(this)
     this.setMessage = this.setMessage.bind(this)
     this.sendEmail = this.sendEmail.bind(this)
+  }
+  changeModalView() {
+    this.setState({ modalIsOpen: !this.state.modalIsOpen })
   }
   setName(ev) {
     ev.preventDefault()
@@ -30,36 +51,37 @@ export default class Home extends Component {
   sendEmail(ev) {
     ev.preventDefault()
     emailjs.send('gmail', 'template_dwI46kfU', this.state)
-    .then(() => alert('Message sent successfully!'))
-    .then(() => document.getElementById('email').reset())
-    .catch(err => console.error(err))
+      .then(() => alert('Message sent successfully!'))
+      .then(() => document.getElementById('email').reset())
+      .then(() => this.changeModalView())
+      .catch(err => console.error(err))
   }
   render() {
     return (
       <div>
-        <div className="intro" />
-        <NERP />
-        <div className="why">
-          <h1>Why the NERP stack?</h1>
-          <ul>
-            <li><span><b>The Virtual DOM</b></span><br />The developers of all the major front-end libraries (React, Angular, Ember) have converged on the idea of using virtual DOMs (React, Angular2, Ember's Glimmer) as a high-performance abstraction for describing and storing application states.</li>
-            <li><span><b>Consistency</b></span><br />The React ecosystem has converged on a same set of standards - React, React-Router, Redux, and Webpack+Babel. This takes a lot of the guesswork out of implementations and development.</li>
-            <li><span><b>Redux</b></span><br />Redux is awesome.  A very small library (2K lines of JavaScript) that encourages good functional programming practices.  Single source of truth and deterministic (replayable) mutations to that state are a great way to create maintainable apps.</li>
-            <li><span><b>Testing</b></span><br />Testing the NERP stack is much easier than its competitors.  React's testing libraries (Enzyme, Jest) are a big contributor to this!</li>
-          </ul>
+        <div className="intro" >
         </div>
-        <div>
-          <h1 className="center">Lets get in touch!</h1>
+        <Nerp />
+        <br />
+        <Projects />
+        <RaisedButton id="contact-me" label="Contact Me!" secondary={true} onClick={this.changeModalView} />
+        <Modal
+          isOpen={this.state.modalIsOpen}
+          onRequestClose={this.changeModalView}
+          contentLabel="Lets get in touch!"
+          style={modalStyles}
+        >
           <form id="email">
-            Name:<br />
-            <input type="text" name="name" onChange={this.setName} /><br />
-            E-mail:<br />
-            <input type="text" name="mail" onChange={this.setEmail} /><br />
-            Message:<br />
-            <textarea id="message" type="text" name="comment" size="50" onChange={this.setMessage} /><br /><br />
-            <input type="reset" value="Send" onClick={this.sendEmail} />
+            <h4 className="center">Let's get in touch!</h4>
+            <p>Input your name, email, and a brief message, and I'll be sure to get back to you!</p>
+            <TextField floatingLabelText="Name" hintText="ex. Mike Michaelson" errorText="This field is required" onChange={this.setName} /><br />
+            <TextField floatingLabelText="Email" hintText="ex. mike.michaelson@gmail.com" errorText="This field is required" onChange={this.setEmail} /><br />
+            <TextField floatingLabelText="Message" defaultValue="Hi! I'd love to speak with you sometime about a project! Please email me back at the address provided." fullWidth={true} multiLine={true} rows={2} rowsMax={10} /><br />
+            <br />
+            <br />
+            <RaisedButton label="Send" primary={true} onClick={this.sendEmail} />
           </form>
-        </div>
+        </Modal>
       </div>
   )
   }
