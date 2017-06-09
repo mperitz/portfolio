@@ -32,4 +32,6 @@ Thumbs.db
 .vscode
 
 # Photoshop files
-intro.psd
+*.psd
+
+public/index.html

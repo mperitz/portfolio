@@ -38,6 +38,12 @@
   .img-tile > img {
     width: 53% !important;
   }
+  .img-tile-projects > img {
+    width: 70% !important;
+  }
+  .greeting-text {
+    top: 250px;
+  }
 }
 
 @media (max-width: 1800px) {
@@ -47,6 +53,9 @@
   }
   .img-tile > img {
     width: 56% !important;
+  }
+  .img-tile-projects > img {
+    width: 73% !important;
   }
 }
 
@@ -58,11 +67,17 @@
   .img-tile > img {
     width: 60% !important;
   }
+  .img-tile-projects > img {
+    width: 76% !important;
+  }
 }
 
 @media (max-width: 1550px) {
   .img-tile > img {
     width: 65% !important;
+  }
+  .img-tile-projects > img {
+    width: 80% !important;
   }
 }
 
@@ -73,6 +88,12 @@
   }
   .img-tile > img {
     width: 68% !important;
+  }
+  .img-tile-projects > img {
+    width: 100% !important;
+  }
+  .greeting-text {
+    top: 220px;
   }
 }
 
@@ -90,11 +111,24 @@
   .img-tile > img {
     width: 73% !important;
   }
+  .img-tile-projects > img {
+    height: 80% !important;
+  }
+  .tile-text.projects {
+    bottom: 12px !important;
+  }
+  .greeting-text {
+    top: 200px;
+  }
 }
 
 @media (max-width: 1190px) {
   .img-tile > img {
     width: 77% !important;
+    height: 77% !important;
+  }
+  .greeting-text {
+    top: 175px;
   }
 }
 
@@ -115,11 +149,27 @@
   .tile-text > p {
     font-size: 12px !important;
   }
+  .img-tile-projects > img {
+    height: 60% !important;
+    margin-top: 20px !important;
+  }
+  .greeting-text {
+    top: 150px;
+  }
 }
 
 @media (max-width: 940px) {
   .img-tile > img {
     width: 95% !important;
+  }
+  #mike {
+    left: 6%;
+  }
+  #peritz{
+    right: 6%;
+  }
+  .greeting-text {
+    top: 125px;
   }
 }
 
@@ -130,11 +180,44 @@
   }
   .img-tile > img {
     width: 100% !important;
+    height: 60% !important;
+  }
+  .greeting-text {
+    top: 115px;
+  }
+}
+
+@media (max-width: 810px) {
+  .greeting-text {
+    top: 100px;
   }
 }
 
 @media (max-width: 682px) {
   .tile-text > p {
     font-size: 10px !important;
+  }
+  .greeting-text {
+    top: 75px;
+  }
+}
+
+@media (max-width: 600px) {
+  .greeting-text {
+    top: 65px;
+    width: 80%;
+  }
+}
+
+@media (max-width: 500px) {
+  #mike {
+    left: 5%;
+  }
+  #peritz{
+    right: 4%;
+  }
+  .greeting-text {
+    top: 50px;
+    width: 90%;
   }
 }

@@ -29,6 +29,14 @@ body {
 	content: "\e625";
 }
 
+.top-bar {
+  background: #0061ff; /* Old browsers */
+  background: -moz-linear-gradient(left, #0061ff 0%, #009ec3 0%, #00e9ff 74%, #009ec3 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, #0061ff 0%,#009ec3 0%,#00e9ff 74%,#009ec3 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #0061ff 0%,#009ec3 0%,#00e9ff 74%,#009ec3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0061ff', endColorstr='#009ec3',GradientType=1 ); /* IE6-9 */
+}
+
 .intro {
   width: 100%;
   background-repeat: no-repeat;
@@ -36,11 +44,42 @@ body {
   top: 0;
 }
 
-.tile {
-  background: white;
-  border: solid 1px;
-  width: 100% !important;
-  padding-left: 15%;
+#face {
+  display: block !important;
+  height: 100% !important;
+  margin: 0 auto !important;
+  position: relative;
+  top: 2.5px;
+}
+
+.face-large {
+  position: relative;
+  width: 50%;
+  height: 50%;
+  top: 120px;
+  left: 45%;
+}
+
+#mike {
+  text-align: right;
+  left: 7%;
+}
+
+#peritz{
+  text-align: left;
+  right: 7%;
+}
+
+#mike > h3, #peritz > h3 {
+  padding: 0;
+  color: black;
+}
+
+.greeting-text {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 70%;
+  padding: 10px;
+  position: relative;
 }
 
 .img-tile {
@@ -49,10 +88,22 @@ body {
   width: 100%;
 }
 
+.img-tile-project {
+  background: white !important;
+  width: 100%;
+}
+
 .img-tile > img {
   display: block !important;
   height: 100% !important;
   margin: 0 auto !important;
+}
+
+.img-tile-projects > img {
+  display: block !important;
+  height: 100% !important;
+  margin: 0px auto !important;
+  border: 1px solid !important;
 }
 
 .project-tile {
@@ -81,6 +132,14 @@ body {
   padding: 20px 0 20px 0;
 }
 
+.single-project {
+  margin-bottom: 100px;
+  border: solid 1px;
+  background-color: white;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 .why > ul {
   text-align: left;
 }
@@ -107,7 +166,22 @@ li > span {
 .center {
   text-align: center;
 }
-/*
-#contact-me {
-  margin-left: 50% !important;
-}*/
+
+#contact {
+  height: 300px;
+}
+
+.line-btn {
+  width: 25%;
+  display: block !important;
+  margin: 0px auto !important;
+  margin-bottom: 20px !important;
+}
+
+.invisible {
+  display: none !important;
+}
+
+#green-btn {
+  background: #41e29d !important;
+}

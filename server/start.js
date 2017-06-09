@@ -9,12 +9,10 @@ const PrettyError = require('pretty-error')
 const finalHandler = require('finalhandler')
 // PrettyError docs: https://www.npmjs.com/package/pretty-error
 
-// Bones has a symlink from node_modules/APP to the root of the app.
+// This next line requires our root index.js:
+const pkg = require('APP') // Symlink from node_modules/APP to the root of the app.
 // That means that we can require paths relative to the app root by
 // saying require('APP/whatever').
-//
-// This next line requires our root index.js:
-const pkg = require('APP')
 
 const app = express()
 
@@ -51,9 +49,6 @@ module.exports = app
   // Serve static files from ../public
   .use(express.static(resolve(__dirname, '..', 'public')))
 
-  // Serve our api - ./api also requires in ../db, which syncs with our database
-  .use('/api', require('./api'))
-
   // any requests with an extension (.js, .css, etc.) turn into 404
   .use((req, res, next) => {
     if (path.extname(req.path).length) {
@@ -63,6 +58,10 @@ module.exports = app
     } else {
       next()
     }
+  })
+
+  .get('/email', (req, res, next) => {
+
   })
 
   // Send index.html for anything else.
@@ -91,7 +90,3 @@ if (module === require.main) {
     }
   )
 }
-
-// This check on line 64 is only starting the server if this file is being run directly by Node, and not required by another file.
-// Bones does this for testing reasons. If we're running our app in development or production, we've run it directly from Node using 'npm start'.
-// If we're testing, then we don't actually want to start the server; 'module === require.main' will luckily be false in that case, because we would be requiring in this file in our tests rather than running it directly.

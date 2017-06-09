@@ -38,36 +38,6 @@ const styles = {
   }
 }
 
-const applicationsTiles = [
-  {
-    img: 'https://media.giphy.com/media/GPIRkqWzkETJu/giphy.gif',
-    title: 'react-filetree-electron',
-    about: 'An open source, fully customizable react component that displays a tree-like representation of a directory.  All sub-directories are expand and contract with the click of a button.  I am currently maintaining this project and managing pull requests.',
-    url: 'https://github.com/mperitz/react-filetree-electron',
-    tech: 'React, Redux, Node.js, Electron, Open Source, Continuous Integration'
-  },
-  {
-    img: './img/pair-it.png',
-    title: 'Pair.It',
-    about: 'A desktop application built for remote pair programming. Pair.It combines peer-to-peer video, live two-way code editing, and version control through Git and Github to allow pair partners to program together from anywhere.',
-    url: 'https://pair-it.herokuapp.com',
-    tech: 'React, Redux, Node.js, Express.js, Electron, Passport OAuth, WebRTC, Socket.io, Simple-Git, Github API, Enzyme, Jest'
-  },
-  {
-    img: './img/jam-map.png',
-    title: 'The Jam Map',
-    about: 'A filterable map that shows users live music in their area. The Jam Map allows you to filter shows by date range, genre, and artist name, and also provides detailed information about each show.  To get you hyped for the show, The Jam Map also provides 30 second song clips by the performing artist.',
-    url: 'https://the-jam-map.herokuapp.com',
-    tech: 'React, Redux, Node.js, Express.js, AJAX, Material UI, Google Maps API, Ticketmaster API, Spotify API'
-  },
-  {
-    img: './img/tech-talk.png',
-    title: 'Handling Asynchronicity in JavaScript',
-    about: "A 10 minute talk discussing asynchronous methods in JavaScript. Topics covered include callbacks, promises, streams, reactive programming, and async-await.  Skip to the end of the video for some useful resources in helping deal with difficult asynchronous situations.",
-    url: 'https://www.youtube.com/watch?v=dSAaLFhlRrc',
-  }
-]
-
 export default class extends Component {
 
   constructor() {
@@ -96,10 +66,6 @@ export default class extends Component {
   render() {
     return (
       <div>
-        <div className="center">
-          <h3>Check out some of the things I've created!</h3>
-          <p>Click each project for more information and a link to the project.</p>
-        </div>
         <div style={styles.root}>
           <GridList
             cellHeight={360}

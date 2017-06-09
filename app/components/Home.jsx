@@ -1,33 +1,28 @@
+/*eslint-disable camelcase*/
 import React, { Component } from 'react'
 import Modal from 'react-modal'
-import TextField from 'material-ui/TextField'
-import RaisedButton from 'material-ui/RaisedButton'
 
-import Nerp from './NERP'
-import Projects from './Projects'
+import Tiles from './Tiles'
+import SingleProject from './SingleProject'
+import ContactButtons from './ContactButtons'
+import EmailForm from './EmailForm'
+import Greeting from './Greeting'
 
-const modalStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-    width: 450
-  }
-}
+import * as tiles from '../tiles'
+import styles from '../styles'
 
 export default class Home extends Component {
   constructor(props) {
     super(props)
     this.state = {
       modalIsOpen: false,
+      selectedProject: {},
       from_name: '',
       reply_email: '',
       message: ''
     }
     this.changeModalView = this.changeModalView.bind(this)
+    this.setProject = this.setProject.bind(this)
     this.setName = this.setName.bind(this)
     this.setEmail = this.setEmail.bind(this)
     this.setMessage = this.setMessage.bind(this)
@@ -35,6 +30,9 @@ export default class Home extends Component {
   }
   changeModalView() {
     this.setState({ modalIsOpen: !this.state.modalIsOpen })
+  }
+  setProject(title) {
+    this.setState({ selectedProject: tiles.projectTiles.find(project => project.title === title) })
   }
   setName(ev) {
     ev.preventDefault()
@@ -49,8 +47,9 @@ export default class Home extends Component {
     this.setState({ message: ev.target.value })
   }
   sendEmail(ev) {
+    const { from_name, reply_email, message } = this.state
     ev.preventDefault()
-    emailjs.send('gmail', 'template_dwI46kfU', this.state)
+    emailjs.send('gmail', 'template_dwI46kfU', { from_name, reply_email, message })
       .then(() => alert('Message sent successfully!'))
       .then(() => document.getElementById('email').reset())
       .then(() => this.changeModalView())
@@ -60,29 +59,30 @@ export default class Home extends Component {
     return (
       <div>
         <div className="intro" >
+          <Greeting />
         </div>
-        <Nerp />
+        <div className="nerd">
+          <h1>I am a total NERP!</h1>
+          <h4>A NERP?  That means I use the NERP stack to create dynamic, scalable applications.  What's the NERP stack?</h4>
+        </div>
+        <Tiles tiles={tiles.nerpTiles} label={'nerp'} />
         <br />
-        <Projects />
-        <RaisedButton id="contact-me" label="Contact Me!" secondary={true} onClick={this.changeModalView} />
+        <div className="center">
+          <h3>Check out some of my work!</h3>
+          <p>Click each project for more information and a link.</p>
+        </div>
+        <Tiles tiles={tiles.projectTiles} label={'projects'} setProject={this.setProject} />
+        {this.state.selectedProject.title && <SingleProject project={this.state.selectedProject} />}
+        <ContactButtons modalIsOpen={this.state.modalIsOpen} changeModalView={this.changeModalView} />
         <Modal
           isOpen={this.state.modalIsOpen}
           onRequestClose={this.changeModalView}
           contentLabel="Lets get in touch!"
-          style={modalStyles}
+          style={styles.emailModal}
         >
-          <form id="email">
-            <h4 className="center">Let's get in touch!</h4>
-            <p>Input your name, email, and a brief message, and I'll be sure to get back to you!</p>
-            <TextField floatingLabelText="Name" hintText="ex. Mike Michaelson" errorText="This field is required" onChange={this.setName} /><br />
-            <TextField floatingLabelText="Email" hintText="ex. mike.michaelson@gmail.com" errorText="This field is required" onChange={this.setEmail} /><br />
-            <TextField floatingLabelText="Message" defaultValue="Hi! I'd love to speak with you sometime about a project! Please email me back at the address provided." fullWidth={true} multiLine={true} rows={2} rowsMax={10} /><br />
-            <br />
-            <br />
-            <RaisedButton label="Send" primary={true} onClick={this.sendEmail} />
-          </form>
+        <EmailForm setName={this.setName} setEmail={this.setEmail} setMessage={this.setMessage} sendEmail={this.sendEmail} />
         </Modal>
       </div>
-  )
+    )
   }
 }
