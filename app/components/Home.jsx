@@ -2,7 +2,7 @@
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 
-import Tiles from './Tiles'
+import Cards from './Cards'
 import SingleProject from './SingleProject'
 import ContactButtons from './ContactButtons'
 import EmailForm from './EmailForm'
@@ -65,24 +65,31 @@ export default class Home extends Component {
           <h1>I am a total NERP!</h1>
           <h4>A NERP?  That means I use the NERP stack to create dynamic, scalable applications.  What's the NERP stack?</h4>
         </div>
-        <Tiles tiles={tiles.nerpTiles} label={'nerp'} />
+        <Cards tiles={tiles.nerpTiles} useClass="nerp-card" />
         <br />
         <div className="center">
           <h3>Check out some of my work!</h3>
           <p>Click each project for more information and a link.</p>
         </div>
-        <Tiles tiles={tiles.projectTiles} label={'projects'} setProject={this.setProject} />
+        <Cards tiles={tiles.projectTiles} useClass="project-card" setProject={this.setProject} />
+        <br />
+        <br />
         {this.state.selectedProject.title && <SingleProject project={this.state.selectedProject} />}
         <ContactButtons modalIsOpen={this.state.modalIsOpen} changeModalView={this.changeModalView} />
-        <Modal
-          isOpen={this.state.modalIsOpen}
-          onRequestClose={this.changeModalView}
-          contentLabel="Lets get in touch!"
-          style={styles.emailModal}
-        >
-        <EmailForm setName={this.setName} setEmail={this.setEmail} setMessage={this.setMessage} sendEmail={this.sendEmail} />
-        </Modal>
+        <div className="modal-wide">
+          <Modal
+            isOpen={this.state.modalIsOpen}
+            onRequestClose={this.changeModalView}
+            contentLabel="Lets get in touch!"
+            style={styles.emailModal}
+          >
+            <EmailForm setName={this.setName} setEmail={this.setEmail} setMessage={this.setMessage} sendEmail={this.sendEmail} />
+          </Modal>
+        </div>
       </div>
     )
   }
 }
+
+// tiles went on line 68 <Tiles tiles={tiles.nerpTiles} label={'nerp'} /> after div id=nerd
+// tiles went on line 74 after div className = center <Tiles tiles={tiles.projectTiles} label={'projects'} setProject={this.setProject} />

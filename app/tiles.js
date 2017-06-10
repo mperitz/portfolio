@@ -48,7 +48,7 @@ export const projectTiles = [
   },
   {
     img: './img/tech-talk.png',
-    title: 'Handling Asynchronicity in JavaScript',
+    title: 'Tech Talk: Asynchronicity',
     about: "A 10 minute talk discussing asynchronous methods in JavaScript. Topics covered include callbacks, promises, streams, reactive programming, and async-await.  Skip to the end of the video for some useful resources in helping deal with difficult asynchronous situations.",
     url: 'https://www.youtube.com/watch?v=dSAaLFhlRrc',
     iframe: 'https://www.youtube.com/embed/dSAaLFhlRrc'

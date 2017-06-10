@@ -21,6 +21,11 @@
 	-moz-osx-font-smoothing: grayscale;
 }
 
+.row {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
 body {
   background: url('./img/topography.png')
 }
@@ -35,6 +40,7 @@ body {
   background: -webkit-linear-gradient(left, #0061ff 0%,#009ec3 0%,#00e9ff 74%,#009ec3 100%); /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right, #0061ff 0%,#009ec3 0%,#00e9ff 74%,#009ec3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0061ff', endColorstr='#009ec3',GradientType=1 ); /* IE6-9 */
+  width: 100%;
 }
 
 .intro {
@@ -44,12 +50,13 @@ body {
   top: 0;
 }
 
+#mike, #face, #peritz {
+  display: inline-block !important;
+}
+
 #face {
-  display: block !important;
-  height: 100% !important;
-  margin: 0 auto !important;
   position: relative;
-  top: 2.5px;
+  top: -5px;
 }
 
 .face-large {
@@ -58,16 +65,6 @@ body {
   height: 50%;
   top: 120px;
   left: 45%;
-}
-
-#mike {
-  text-align: right;
-  left: 7%;
-}
-
-#peritz{
-  text-align: left;
-  right: 7%;
 }
 
 #mike > h3, #peritz > h3 {
@@ -82,37 +79,30 @@ body {
   position: relative;
 }
 
-.img-tile {
-  background: white !important;
-  border: 1px solid !important;
-  width: 100%;
+.cards {
+  height: 80%;
+  padding-left: 3.5%;
 }
 
-.img-tile-project {
-  background: white !important;
-  width: 100%;
+.nerp-card, .project-card {
+  display: inline-block;
+  vertical-align: top;
+  padding: 20px;
+  margin-left: 15px;
+  margin-top: 10px;
+  height: 650px;
+  width: 23%;
+  border: solid 1px;
+  box-shadow: 10px 10px 10px 1px rgba(0, 0, 0, 0.5) !important;
 }
 
-.img-tile > img {
-  display: block !important;
-  height: 100% !important;
-  margin: 0 auto !important;
+.project-card {
+  height: 520px;
+  background-color: rgba(210, 216, 219, 1) !important;
 }
 
-.img-tile-projects > img {
-  display: block !important;
-  height: 100% !important;
-  margin: 0px auto !important;
-  border: 1px solid !important;
-}
-
-.project-tile {
-  border: 1px solid !important;
-
-}
-
-.tile-text {
-  height: 100%;
+.card-text {
+  vertical-align: bottom !important;
 }
 
 .nerd {
@@ -153,12 +143,6 @@ li > span {
   font-size: 20px;
 }
 
-#message {
-  height: 75px;
-  min-width: 300px;
-  width: 100%;
-}
-
 #send {
   float: right;
 }
@@ -168,13 +152,14 @@ li > span {
 }
 
 #contact {
-  height: 300px;
+  height: 250px;
 }
 
 .line-btn {
   width: 25%;
   display: block !important;
   margin: 0px auto !important;
+  margin-top: 20px !important;
   margin-bottom: 20px !important;
 }
 
@@ -184,4 +169,17 @@ li > span {
 
 #green-btn {
   background: #41e29d !important;
+}
+
+.modal-mobile {
+  display: hidden !important;
+}
+
+.single-project > h4 {
+  padding: 0 100px 0 100px;
+}
+
+.iframe {
+  width: 560px;
+  height: 315px;
 }
