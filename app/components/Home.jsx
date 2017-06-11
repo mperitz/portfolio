@@ -32,7 +32,12 @@ export default class Home extends Component {
     this.setState({ modalIsOpen: !this.state.modalIsOpen })
   }
   setProject(title) {
-    this.setState({ selectedProject: tiles.projectTiles.find(project => project.title === title) })
+    this.setState(
+      {
+        selectedProject: tiles.projectTiles.find(project => project.title === title)
+      },
+      () => document.getElementsByClassName('single-project')[0].scrollIntoView(false)
+      )
   }
   setName(ev) {
     ev.preventDefault()
