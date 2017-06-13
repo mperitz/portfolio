@@ -25,7 +25,7 @@ export const projectTiles = [
   {
     img: 'https://media.giphy.com/media/GPIRkqWzkETJu/giphy.gif',
     title: 'react-filetree-electron',
-    about: 'An open source, fully customizable react component that displays a tree-like representation of a directory.  All sub-directories are expand and contract with the click of a button.  I have unit tested all aspects, and am currently maintaining this project/managing pull requests.',
+    about: 'An open source, fully customizable react component that displays a tree-like representation of a directory.  All sub-directories expand and contract with the click of a button.  I have unit tested all aspects, and am currently maintaining this project/managing pull requests.',
     url: 'https://github.com/mperitz/react-filetree-electron',
     tech: 'React, Redux, Node.js, Electron, Enzyme, Jest, Open Source, Continuous Integration',
     iframe: 'https://media.giphy.com/media/GPIRkqWzkETJu/giphy.gif'
