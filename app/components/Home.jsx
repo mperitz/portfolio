@@ -88,7 +88,7 @@ export default class Home extends Component {
             contentLabel="Lets get in touch!"
             style={styles.emailModal}
           >
-            <EmailForm setName={this.setName} setEmail={this.setEmail} setMessage={this.setMessage} sendEmail={this.sendEmail} />
+            <EmailForm setName={this.setName} setEmail={this.setEmail} setMessage={this.setMessage} sendEmail={this.sendEmail} closeModal={this.changeModalView} />
           </Modal>
         </div>
       </div>

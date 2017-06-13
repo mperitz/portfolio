@@ -13,6 +13,7 @@ export default (props) => {
       <br />
       <br />
       <RaisedButton label="Send" primary={true} onClick={props.sendEmail} />
+      <RaisedButton label="Close" secondary={true} onClick={props.closeModal} />
     </form>
   )
 }
