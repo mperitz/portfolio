@@ -45,6 +45,17 @@ body {
   width: 100%;
 }
 
+.top-bar > h5 {
+  margin: 0px !important;
+  color: black !important;
+  padding-bottom: 5px !important;
+  font-family: 'Fredoka One', cursive !important;
+}
+
+a {
+  color: black !important;
+}
+
 .intro {
   width: 100%;
   background-repeat: no-repeat;
@@ -177,6 +188,10 @@ li > span {
 
 #green-btn {
   background: #41e29d !important;
+}
+
+#orange-btn {
+  background: #ffb44c !important;
 }
 
 .modal-mobile {
