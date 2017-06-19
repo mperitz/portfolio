@@ -1,4 +1,5 @@
 /*eslint-disable camelcase*/
+/*eslint-disable no-alert*/
 import React, { Component } from 'react'
 import Modal from 'react-modal'
 
@@ -54,11 +55,21 @@ export default class Home extends Component {
   sendEmail(ev) {
     const { from_name, reply_email, message } = this.state
     ev.preventDefault()
+    if (!/(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/
+    .test(reply_email)) {
+      alert('Please enter a valid email address')
+      return null
+    }
+    /*eslint-disable no-undef*/
     emailjs.send('gmail', 'template_dwI46kfU', { from_name, reply_email, message })
+    /*eslint-enable no-undef*/
       .then(() => alert('Message sent successfully!'))
       .then(() => document.getElementById('email').reset())
       .then(() => this.changeModalView())
-      .catch(err => console.error(err))
+      .catch(err => {
+        alert('Unfortunately, the email service is down.  Please manually send me an email at mike.peritz@gmail.com or wait a few hours and try again.  Sorry for this inconvenience!')
+        console.error(err)
+      })
   }
   render() {
     return (
