@@ -85,7 +85,7 @@ export default class Home extends Component {
         <br />
         <div className="center">
           <h3>Check out some of my work!</h3>
-          <p>Click each project for more information and a link.</p>
+          <h3>Click each project for more information and a link.</h3>
         </div>
         <Cards tiles={tiles.projectTiles} useClass="project-card" setProject={this.setProject} />
         <br />
