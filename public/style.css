@@ -120,6 +120,12 @@ a {
   background-color: rgba(210, 216, 219, 1) !important;
 }
 
+.project-card:hover {
+  transform: translateY(-5px);
+  cursor: pointer;
+  box-shadow: 10px 10px 10px 1px rgba(0, 100, 100, 0.5) !important;
+}
+
 .card-text {
   vertical-align: bottom !important;
 }
