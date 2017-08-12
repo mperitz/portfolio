@@ -48,10 +48,6 @@ module.exports = app
     }
   })
 
-  .get('/email', (req, res, next) => {
-
-  })
-
   // Send index.html for anything else.
   .get('/*', (_, res) => res.sendFile(resolve(__dirname, '..', 'public', 'index.html')))
 
