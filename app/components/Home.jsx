@@ -77,17 +77,17 @@ export default class Home extends Component {
         <div className="intro" >
           <Greeting />
         </div>
-        <div className="nerd">
+        {/* <div className="nerd">
           <h1>I am a total NERP!</h1>
           <h4>A NERP?  That means I use the NERP stack to create dynamic, scalable applications.  What's the NERP stack?</h4>
         </div>
-        <Cards tiles={tiles.nerpTiles} useClass="nerp-card" />
+    <Cards tiles={tiles.nerpTiles} useClass="nerp-card" /> */}
         <br />
         <div className="center">
           <h3>Check out some of my work!</h3>
           <h3>Click each project for more information and a link.</h3>
         </div>
-        <Cards tiles={tiles.projectTiles} useClass="project-card" setProject={this.setProject} />
+        <Cards className="project-cards" tiles={tiles.projectTiles} useClass="project-card" setProject={this.setProject} />
         <br />
         <br />
         {this.state.selectedProject.title && <SingleProject project={this.state.selectedProject} />}

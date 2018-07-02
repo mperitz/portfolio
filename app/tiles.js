@@ -23,6 +23,14 @@ export const nerpTiles = [
 
 export const projectTiles = [
   {
+    img: './img/richard-bernstein-books.png',
+    title: 'Richard Bernstein - Author & Journalist',
+    about: 'A website displaying the work of author and journalist Richard Bernstein.  An intuitive UI shows visitors lists of books and articles, and an easy-to-use CMS allows the author to add, remove, and edit content smoothly.',
+    url: 'https://www.richardbernstein.net',
+    tech: 'React, Redux, Node.js, Express.js, Mongoose.js, MongoDB',
+    iframe: './img/richard-bernstein-books.png'
+  },
+  {
     img: 'https://media.giphy.com/media/GPIRkqWzkETJu/giphy.gif',
     title: 'react-filetree-electron',
     about: 'An open source, fully customizable react component that displays a tree-like representation of a directory.  All sub-directories expand and contract with the click of a button.  I have unit tested all aspects, and am currently maintaining this project/managing pull requests.',

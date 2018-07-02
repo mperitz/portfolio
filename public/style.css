@@ -103,12 +103,19 @@ a {
   padding-left: 3.5%;
 }
 
+.project-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
 .nerp-card, .project-card {
   display: inline-block;
   vertical-align: top;
   padding: 20px;
-  margin-left: 15px;
-  margin-top: 10px;
+  /* margin-left: 15px;
+  margin-top: 10px; */
+  margin: 10px;
   height: 650px;
   width: 23%;
   border: solid 1px;
@@ -118,6 +125,7 @@ a {
 .project-card {
   height: 520px;
   background-color: rgba(210, 216, 219, 1) !important;
+  width: 30%;
 }
 
 .project-card:hover {
