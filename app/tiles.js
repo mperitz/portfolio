@@ -25,7 +25,7 @@ export const projectTiles = [
   {
     img: './img/richard-bernstein-books.png',
     title: 'Richard Bernstein - Author & Journalist',
-    about: 'A website displaying the work of author and journalist Richard Bernstein.  An intuitive UI shows visitors lists of books and articles, and an easy-to-use CMS allows the author to add, remove, and edit content smoothly.',
+    about: 'A website displaying the work of author and journalist Richard Bernstein.  An intuitive UI guides users, and an easy-to-use CMS allows the author to add, remove, and edit content.  Deployed in the cloud via Digital Ocean Ubuntu server, nginx, and PM2.  SSL certified.',
     url: 'https://www.richardbernstein.net',
     tech: 'React, Redux, Node.js, Express.js, Mongoose.js, MongoDB',
     iframe: './img/richard-bernstein-books.png'
